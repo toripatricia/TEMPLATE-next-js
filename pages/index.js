@@ -1,18 +1,14 @@
-import { useState } from 'react';
+import Counter from '../components/Counter';
 
 function Home() {
-  const [value, setValue] = useState(0);
+  const myAnimals = [{ animalName: 'Elephant' }, { animalName: 'Capybara' }, { animalName: 'Sloth' }];
 
-  const handleClick = () => {
-    setValue((prevState) => prevState + 1);
-  };
   return (
     <>
-      <h1>Counter Title</h1>
-      <h2>{value}</h2>
-      <button type="button" onClick={handleClick}>Increment</button>
-      <button type="button" onClick={() => setValue((prevState) => prevState - 1)}>Decrement</button>
-      <button type="button" onClick={() => setValue(0)}>Reset</button>
+      <h1>Animal Counter</h1>
+      {myAnimals.map((animal) => (
+        <Counter animalName={animal.animalName} />
+      ))}
     </>
   );
 }
